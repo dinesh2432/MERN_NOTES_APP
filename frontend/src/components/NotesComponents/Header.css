@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400&display=swap');
+.notesheader {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.6);
+  
+}
+
+.notesheader1 {
+  width: 90%;
+  max-width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* color: #fff; */
+}
+
+.notesheader1 h1 {
+  margin: 0;
+  font-size: 25px;
+  letter-spacing: 1px;
+  color: white;
+  font-family: 'Poppins';
+}
+
+.notesheader1 button {
+  background: #fff;
+  color: #6c63ff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.notesheader1 button:hover {
+  background: #eceaff;
+}

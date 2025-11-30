@@ -1,0 +1,754 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.inner1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: rgba(255, 255, 255, 0.56);
+    box-shadow: 0 1px 9px rgba(0,0.9,0.4,0.9);
+}
+.inner1 h1{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight:550;
+    color: rgba(0, 0, 0,0.7);
+    font-size: 33px;
+
+}
+.inner1 button{
+    padding: 13px;
+    border: none;
+    border-radius: 20px;
+    font-size: 20px;
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+}
+.inner1 button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.4s ease-in-out 0.1s;
+}
+.inner2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height:85vh;
+    margin: 0 auto;
+    text-align: center;
+}
+.inner2 h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0, 0, 0,0.8);
+    font-size: 50px;
+}
+.inner2 h4{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0, 0, 0,0.9);
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+.inner2 button{
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+    
+}
+.inner2 button:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: transform 0.4s ease-in-out;
+}
+
+@media (max-width:426px){
+    .inner2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height:85vh;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .inner2 h1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgba(0, 0, 0,0.8);
+        font-size: 30px;
+    }
+    .inner2 h4{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgba(0, 0, 0,0.9);
+        font-size: 15px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+}
+
+@media (min-width:426px) and (max-width:769px){
+    .inner2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height:85vh;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .inner2 h1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgba(0, 0, 0,0.8);
+        font-size: 45px;
+    }
+    .inner2 h4{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgba(0, 0, 0,0.9);
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+    }
+}
+
+
+
+/* log in page style */
+
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f6f7fb;
+    padding: 20px;
+}
+
+
+.login-container h1 {
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0,0.8);
+    letter-spacing: 1px;
+    font-family: 'Poppins';
+
+}
+
+.login_inner1 {
+    background: white;
+    padding: 30px 30px;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    
+}
+
+
+.login_inner1 label {
+    font-weight: 600;
+    color: rgba(0, 0, 0,0.8);
+    font-family: 'Poppins';
+    
+}
+
+
+.login_inner1 input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-top: 3px;
+    margin-bottom: 4px;
+    transition: 0.2s;
+}
+
+.login_inner1 input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 4px rgba(108, 99, 255, 0.4);
+}
+
+
+.login_inner1 p {
+    color: #6c63ff;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: right;
+    margin-top: -5px;
+    font-family: 'Poppins';
+}
+
+
+.login_inner1 button {
+    padding: 12px;
+    background: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.login_inner1 button:hover {
+    background: #5852d4;
+}
+
+
+.login_inner2 {
+    margin-top: 20px;
+}
+
+.login_inner2 h4 {
+    font-weight: 400;
+    font-size: 15px;
+    font-family: 'Poppins';
+    color:rgba(0, 0, 0,0.9)
+
+}
+
+.login_inner2 span a {
+    color: #6c63ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login_inner2 span a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 480px) {
+    .login_inner1 {
+        width: 90%;
+    }
+}
+
+
+
+
+/* signin style here */
+.signin-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f6f7fb;
+    padding: 20px;
+}
+
+.signin-container h1 {
+    margin-bottom: 20px;
+    color:rgba(0, 0, 0,0.9);
+    font-family: 'Poppins';
+    letter-spacing: 1px;
+}
+
+.signin_inner1 {
+    background: white;
+    padding: 25px 30px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signin_inner1 label {
+    font-weight: 600;
+    color: rgba(0, 0, 0,0.9);
+    font-family: "Poppins";
+}
+
+.signin_inner1 input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-top: 5px;
+    transition: 0.2s;
+}
+
+.signin_inner1 input:focus {
+    border-color: #6c63ff;
+    box-shadow: 0 0 4px rgba(108, 99, 255, 0.4);
+}
+
+.signin_inner1 p {
+    color: #6c63ff;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: right;
+    margin-top: -5px;
+    font-family: "Poppins";
+}
+
+.signin_inner1 button {
+    padding: 12px;
+    background: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.signin_inner1 button:hover {
+    background: #5852d4;
+}
+
+.signin_inner2 {
+    margin-top: 20px;
+}
+
+.signin_inner2 h4 {
+    font-weight: 400;
+    font-size: 15px;
+    color: rgba(0, 0, 0,0.9);
+    font-family: "Poppins";    
+}
+
+.signin_inner2 span a {
+    color: #6c63ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signin_inner2 span a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .signin_inner1 {
+        width: 90%;
+    }
+}
+
+
+/* email verify style */
+
+.email_verify_inner {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.email_verify_inner1 {
+    width: 350px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 35px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.9);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.email_verify_inner1 h1 {
+    font-size: 22px;
+    color: rgba(0, 0, 0,0.9);
+    font-family: "Poppins";
+    margin-bottom: 25px;
+    word-spacing: 5px;
+}
+
+.email_verify_inner1 input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.email_verify_inner1 input:focus {
+    border-color: #4A90E2;
+    box-shadow: 0px 0px 6px rgba(74, 144, 226, 0.6);
+}
+
+.email_verify_inner1 button {
+    width: 100%;
+    padding: 12px;
+    font-size: 20px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.email_verify_inner1 button:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+}
+
+.email_verify_inner1 button:active {
+    transform: translateY(1px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* password change style */
+.reset_password {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.reset_password1 {
+    width: 350px;
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.9);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.reset_password1 h2 {
+    color:rgba(0, 0, 0,0.9);
+    font-family: "Poppins";
+    margin-bottom: 25px;
+    font-size: 24px;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+}
+
+.reset_password1 input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 16px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 20px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.reset_password1 input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 6px rgba(102, 126, 234, 0.6);
+}
+
+.reset_password1 button {
+    width: 100%;
+    padding: 12px;
+    font-size: 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.reset_password1 button:hover {
+    background: #5563d6;
+    transform: translateY(-2px);
+}
+
+.reset_password1 button:active {
+    transform: translateY(1px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
+/* dashboard style here */
+
+.dashboard-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+.searchtask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Space between input and button */
+  margin: 20px auto;
+}
+
+/* Button Styling - same as existing */
+.searchtask button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+}
+
+.searchtask button:hover {
+  background-color: #0056b3;
+}
+.showtask {
+  
+  background: rgba(160, 190, 196,0.6);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+  max-width: 400px;
+  min-width: 250px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.showtask:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.showtask div {
+  margin-bottom: 8px;
+}
+.showtask h1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+}
+.showtask h4{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    overflow-y: auto;
+    max-height: 100px;
+    padding-right: 10px;
+    scroll-behavior: smooth;
+}
+
+.showtask h4::-webkit-scrollbar {
+  width: 6px; 
+}
+.showtask h4::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+.showtask h4::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px; 
+}
+.showtask h4::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
+.showtask p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    margin-top: -2px;
+}
+
+.showtask button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.showtask button:hover {
+  background: #0056b3;
+}
+
+.showtask button:last-child {
+  background: #dc3545;
+}
+
+.showtask button:last-child:hover {
+  background: #c82333;
+}
+
+#search {
+  width: 100%;
+  max-width: 350px;  
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#search:focus {
+  border-color: #007bff;
+}
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    gap: 15px;
+    padding: 15px;
+  }
+  
+  .showtask {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-wrapper {
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .showtask {
+    padding: 12px;
+  }
+}
+
+
+
+/* Backdrop that covers the whole page */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure modal appears above other content */
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* backdrop-filter: blur(1px);  */
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  z-index: 1001;
+}
+
+.modal h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.modal input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.modal input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.4);
+}
+
+.modal button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #6c63ff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+.modal button:hover {
+  background-color: #5852d4;
+}
+
+.modal button[type="button"] {
+  background-color: #ccc;
+}
+
+.modal button[type="button"]:hover {
+  background-color: #999;
+}
+
+/* Error message container */
+.error-message-container {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100; 
+  width: 90%;
+  max-width: 500px;
+
+  border: 2px solid red;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+}
+
+
+.error-message {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+  font-family: 'Poppins';
+}
