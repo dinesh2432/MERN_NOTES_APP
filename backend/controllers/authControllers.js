@@ -95,7 +95,7 @@ const emailLink = async(req,res) =>{
         user.resetToken = resetToken
         user.resetTokenExpire=Date.now()+15*60*1000
         await user.save()
-        const resetLink = `${process.env.FRONTEND_RESET_URL}/${resetToken}`
+        const resetLink = `http://localhost:3000/reset-password/${resetToken}`
         const mailOptions ={
             from:process.env.SENDER_MAIL,
             to:user.email,
