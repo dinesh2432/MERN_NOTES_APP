@@ -95,7 +95,7 @@ const emailLink = async(req,res) =>{
         user.resetToken = resetToken
         user.resetTokenExpire=Date.now()+15*60*1000
         await user.save()
-        const resetLink = `http://localhost:3000/reset-password/${resetToken}`
+        const resetLink = `https://mern-notes-app-wine.vercel.app/reset-password/${resetToken}`
         const mailOptions ={
             from:process.env.SENDER_MAIL,
             to:user.email,
