@@ -10,7 +10,7 @@ const Login = () => {
     const navigate = useNavigate()
     const handleLogin = async(email,password)=>{
         try{
-            const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/login`,{email,password},{withCredentials:true,headers:{"Content-Type":"application/json"}})
+            const res = await axios.post(`https://mern-notes-app-backend-f4h5.onrender.com/api/auth/login`,{email,password},{withCredentials:true,headers:{"Content-Type":"application/json"}})
             if(res.status ==200){
                 navigate('/notes')
             }
