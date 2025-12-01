@@ -23,10 +23,8 @@ const Dashboard = () => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/api/notes`, { withCredentials: true })
       .then((res) => {
-
         const notes = res.data.notes || [];   
         const user = res.data.user || {};     
-
         setMessage(notes);
         setFilteredNotes(notes);
         setName(user.name ||'User');         
@@ -34,6 +32,7 @@ const Dashboard = () => {
       .catch((err) => {
         setIsToggleError(true);
         setShowError("Unable to fetch notes!");
+        console.log(`${process.env.REACT_APP_BACKEND_URL}/api/notes`)
         setTimeout(() => {
           setIsToggleError(false);
         }, 4000);
