@@ -8,6 +8,7 @@ const authMiddleware = async(req,res,next)=>{
     try{
         const decode = jwt.verify(token,process.env.JWT_SECRET_KEY)
         req.user = decode
+        req.userId = decode.id;
         next()
     }catch(err){
         return res.status(500).json({message:err.message})
@@ -21,6 +22,7 @@ const authUserDetails = async(req,res,next)=>{
     }
     try{
         const decode = jwt.verify(token,process.env.JWT_SECRET_KEY)
+        req.user = decode;
         req.userId = decode.id
         next()
     }catch(err){
