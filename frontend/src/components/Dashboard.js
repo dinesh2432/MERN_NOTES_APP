@@ -51,7 +51,7 @@ const Dashboard = () => {
     }
 
     try {
-      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/notes/add`, {
+      const res = await axios.post(`https://mern-notes-app-backend-f4h5.onrender.com/api/notes/add`, {
         title:newTaskTitle,
         description:newTaskDescription,
       }, { withCredentials: true, headers: { "Content-Type": "application/json" } });
