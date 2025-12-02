@@ -103,6 +103,7 @@ const emailLink = async(req,res) =>{
             text:`Hi buddy please click this link to change the password ${resetLink}`
         }
         await transporter.sendMail(mailOptions)
+        console.log("mail sent succes")
         return res.status(200).json({message:"mail sent successfully"})
         
     }catch(err){
