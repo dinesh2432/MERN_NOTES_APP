@@ -30,7 +30,7 @@ const ResetPassword = () => {
     } 
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/auth/reset-password`,
+        `https://mern-notes-app-backend-f4h5.onrender.com/api/auth/reset-password`,
         { token, password },
         { withCredentials: true, headers: { 'Content-Type': 'application/json' } }
       );
