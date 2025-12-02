@@ -29,7 +29,7 @@ const EmailVerify = () => {
             return
         } 
         try{
-            const res = await axios.post(`https://mern-notes-app-backend-f4h5.onrender.com/api/auth/email-validate`,{email},{withCredentials:true,headers: { "Content-Type": "application/json" }})
+            const res = await axios.post(`https://mern-notes-app-backend-f4h5.onrender.com/api/auth/email-verify`,{email},{withCredentials:true,headers: { "Content-Type": "application/json" }})
             setIsToggle(true)
             setIsMessage(res.data.message)
             setTimeout(() => {
