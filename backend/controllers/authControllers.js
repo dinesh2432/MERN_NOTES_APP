@@ -4,7 +4,9 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const crypto = require('crypto')
 const transporter = require('../config/nodeMailer')
-import { sendMail } from "../config/sendMail.js";
+// import { sendMail } from "../config/sendMail.js";
+
+const sendMail = require('../config/nodeMailer')
 const register = async(req,res)=>{
     const {name,email,password} = req.body
     if(!email || !name || !password){
