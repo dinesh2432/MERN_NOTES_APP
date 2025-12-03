@@ -1,7 +1,7 @@
 require('dotenv').config()
 const noteModel = require('../models/noteModel')
 const userModel = require('../models/userModel')
-
+// console.log("hello")
 const getAllNotes = async(req,res)=>{
     try{
         const notes = await noteModel.find({userId:req.user.id})
