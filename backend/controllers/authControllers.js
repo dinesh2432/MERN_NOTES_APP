@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config()
 const crypto = require('crypto')
 const transporter = require('../config/nodeMailer')
-
+import { sendMail } from "../config/sendMail.js";
 const register = async(req,res)=>{
     const {name,email,password} = req.body
     if(!email || !name || !password){
@@ -110,38 +110,72 @@ const logout = async(req,res)=>{
 //         return res.status(500).json({message:err.message})
 //     }
 // }
-const emailLink = async (req, res) => {
-  const { email } = req.body
-  if (!email) {
-    return res.status(401).json({ message: "Data missing" })
-  }
-  try {
-    const user = await userModel.findOne({ email })
-    if (!user) {
-      return res.status(401).json({ message: "user not found" })
-    }
-    const resetToken = crypto.randomBytes(32).toString("hex")
-    user.resetToken = resetToken
-    user.resetTokenExpire = Date.now() + 15 * 60 * 1000
-    console.log("trying to save user")
-    await user.save()
-    console.log("user saved")
-    const resetLink = `https://mern-notes-app-wine.vercel.app/reset-password/${resetToken}`
-    const mailOptions = {
-      from: process.env.SENDER_MAIL,
-      to: user.email,
-      subject: "Reset Password link",
-      text: `Hi buddy please click this link to change the password ${resetLink}`
-    }
-    console.log("mail sending start")
-    await transporter.sendMail(mailOptions)
-    console.log("mail sent succes")
-    return res.status(200).json({ message: "mail sent successfully" })
 
-  } catch (err) {
-    return res.status(500).json({ message: err.message })
+// const emailLink = async (req, res) => {
+//   const { email } = req.body
+//   if (!email) {
+//     return res.status(401).json({ message: "Data missing" })
+//   }
+//   try {
+//     const user = await userModel.findOne({ email })
+//     if (!user) {
+//       return res.status(401).json({ message: "user not found" })
+//     }
+//     const resetToken = crypto.randomBytes(32).toString("hex")
+//     user.resetToken = resetToken
+//     user.resetTokenExpire = Date.now() + 15 * 60 * 1000
+//     console.log("trying to save user")
+//     await user.save()
+//     console.log("user saved")
+//     const resetLink = `https://mern-notes-app-wine.vercel.app/reset-password/${resetToken}`
+//     const mailOptions = {
+//       from: process.env.SENDER_MAIL,
+//       to: user.email,
+//       subject: "Reset Password link",
+//       text: `Hi buddy please click this link to change the password ${resetLink}`
+//     }
+//     console.log("mail sending start")
+//     await transporter.sendMail(mailOptions)
+//     console.log("mail sent succes")
+//     return res.status(200).json({ message: "mail sent successfully" })
+
+//   } catch (err) {
+//     return res.status(500).json({ message: err.message })
+//   }
+// }
+
+const emailLink = async (req, res) => {
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(400).json({ message: "Email required" });
   }
-}
+
+  try {
+    const user = await userModel.findOne({ email });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const resetToken = crypto.randomBytes(32).toString("hex");
+    user.resetToken = resetToken;
+    user.resetTokenExpire = Date.now() + 15 * 60 * 1000;
+    await user.save();
+
+    const resetLink = `https://mern-notes-app-wine.vercel.app/reset-password/${resetToken}`;
+
+    await sendMail(
+      user.email,
+      "Reset Password Link",
+      `Click here to reset password: <a href="${resetLink}">${resetLink}</a>`
+    );
+
+    return res.status(200).json({ message: "Mail sent successfully!" });
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+};
+
 
 const resetPass = async(req,res)=>{
     const {token,password}=req.body
