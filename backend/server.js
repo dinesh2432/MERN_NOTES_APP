@@ -10,10 +10,8 @@ const notesRoutes = require('./routes/noteRoutes')
 const { authMiddleware, authUserDetails } = require('./middlewares/usersNotesMiddleware')
 
 app.use(cors({
-    origin: "https://mern-notes-app-wine.vercel.app",
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type"],               
+    origin: ["http://localhost:3000","https://mern-notes-app-wine.vercel.app"],
+    credentials: true  
 }));
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))

@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
         default: null,
     },
     resetTokenExpire: {
-        type: String,
+        type: Date,
         default: null,
     },createdAt:{
         type:Date,
