@@ -30,7 +30,7 @@ const ResetPassword = () => {
     } 
     try {
       const res = await axios.post(
-        `https://mern-notes-app-86t8.vercel.app/api/auth/reset-password`,
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/reset-password`,
         { token, password },
         { withCredentials: true, headers: { 'Content-Type': 'application/json' } }
       );

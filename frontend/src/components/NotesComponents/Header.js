@@ -8,7 +8,7 @@ const Header = ({ name }) => {
   const handleLogout = async () => {
     try {
       // const res = await axios.post(`https://mern-notes-app-backend-f4h5.onrender.com/api/auth/logout`, {}, { withCredentials: true });
-      const res = await axios.post(`https://mern-notes-app-86t8.vercel.app/api/auth/logout`, {}, { withCredentials: true });
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/logout`, {}, { withCredentials: true });
       navigate('/login');
     } catch (err) {
       alert(err.message); 
