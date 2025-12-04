@@ -40,7 +40,7 @@ const Signin = () => {
             return 
         } 
         try{
-            const res = await axios.post(`https://mern-notes-app-backend-f4h5.onrender.com/api/auth/register`,{name,email,password},{withCredentials:true,headers:{"Content-Type":"application/json"}})
+            const res = await axios.post(`https://mern-notes-app-86t8.vercel.app/api/auth/register`,{name,email,password},{withCredentials:true,headers:{"Content-Type":"application/json"}})
             if(res.status ==200){
                 navigate('/notes')
             }

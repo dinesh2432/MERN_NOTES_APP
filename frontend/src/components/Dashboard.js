@@ -21,7 +21,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     axios
-      .get(`https://mern-notes-app-backend-f4h5.onrender.com/api/notes`, { withCredentials: true })
+      .get(`https://mern-notes-app-86t8.vercel.app/api/notes`, { withCredentials: true })
       .then((res) => {
         const notes = res.data.notes || [];   
         const user = res.data.user || {};     
@@ -50,7 +50,7 @@ const Dashboard = () => {
     }
 
     try {
-      const res = await axios.post(`https://mern-notes-app-backend-f4h5.onrender.com/api/notes/add`, {
+      const res = await axios.post(`https://mern-notes-app-86t8.vercel.app/api/notes/add`, {
         title:newTaskTitle,
         description:newTaskDescription,
       }, { withCredentials: true, headers: { "Content-Type": "application/json" } });
@@ -79,7 +79,7 @@ const Dashboard = () => {
     }
 
     try {
-      const res = await axios.put(`https://mern-notes-app-backend-f4h5.onrender.com/api/notes/${editId}`, {
+      const res = await axios.put(`https://mern-notes-app-86t8.vercel.app/api/notes/${editId}`, {
         title: newTaskTitle,
         description: newTaskDescription,
       }, { withCredentials: true });
@@ -120,7 +120,7 @@ const Dashboard = () => {
 
   const handleDelete = (id) => {
     axios
-      .delete(`https://mern-notes-app-backend-f4h5.onrender.com/api/notes/${id}`, { withCredentials: true })
+      .delete(`https://mern-notes-app-86t8.vercel.app/api/notes/${id}`, { withCredentials: true })
       .then((res) => {
         setIsToggleError(true);
         setShowError(res.data.message);
