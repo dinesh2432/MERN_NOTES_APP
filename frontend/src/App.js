@@ -6,6 +6,7 @@ import Signin from './components/Signin';
 import Dashboard from './components/Dashboard';
 import EmailVerify from './components/EmailVerify';
 import ResetPassword from './components/ResetPassword';
+import ProtectedRoute from './components/ProtectedRoutes';
 
 function App() {
   return (
@@ -23,7 +24,15 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="/notes" element={<Dashboard />} />
+        <Route
+          path="/notes"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
         <Route path="/email-verify" element={<EmailVerify />} />
         <Route path="/reset-password/:token" element={<ResetPassword/>}/>
         
