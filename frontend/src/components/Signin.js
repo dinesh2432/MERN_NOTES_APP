@@ -41,6 +41,7 @@ const Signin = () => {
         } 
         try{
             const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/register`,{name,email,password},{withCredentials:true,headers:{"Content-Type":"application/json"}})
+            localStorage.setItem("authToken", res.data.token);
             if(res.status ==200){
                 navigate('/notes')
             }
