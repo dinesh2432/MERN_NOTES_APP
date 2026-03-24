@@ -126,9 +126,9 @@ const emailLink = async (req, res) => {
     const resetToken = crypto.randomBytes(32).toString("hex")
     user.resetToken = resetToken
     user.resetTokenExpire = Date.now() + 15 * 60 * 1000
-    console.log("trying to save user")
+    // console.log("trying to save user")
     await user.save()
-    console.log("user saved")
+    // console.log("user saved")
     const resetLink = `https://mern-notes-app-wine.vercel.app/reset-password/${resetToken}`
     const mailOptions = {
       from: process.env.SENDER_MAIL,
@@ -136,9 +136,9 @@ const emailLink = async (req, res) => {
       subject: "Reset Password link",
       text: `Hi buddy please click this link to change the password ${resetLink}`
     }
-    console.log("mail sending start")
+    // console.log("mail sending start")
     await transporter.sendMail(mailOptions)
-    console.log("mail sent succes")
+    // console.log("mail sent succes")
     return res.status(200).json({ message: "mail sent successfully" })
 
   } catch (err) {

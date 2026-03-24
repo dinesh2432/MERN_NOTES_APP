@@ -1,10 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Header from "./NotesComponents/Header";
 import "./Home.css";
 import { IoIosAddCircle } from "react-icons/io";
 import { ImSad } from "react-icons/im";
+import toast from 'react-hot-toast';
 
 const Dashboard = () => {
   const [message, setMessage] = useState([]);
@@ -16,8 +16,6 @@ const Dashboard = () => {
   const [newTaskTitle, setNewTaskTitle] = useState("");
   const [newTaskDescription, setNewTaskDescription] = useState("");
   const [isEditMode, setIsEditMode] = useState(false);
-  const [isToggleError, setIsToggleError] = useState(false);
-  const [showError, setShowError] = useState("");
 
   useEffect(() => {
     axios
@@ -27,55 +25,38 @@ const Dashboard = () => {
         const user = res.data.user || {};     
         setMessage(notes);
         setFilteredNotes(notes);
-        setName(user.name ||'User');         
+        setName(user.name || 'User');         
       })
       .catch((err) => {
-        setIsToggleError(true);
-        setShowError("Unable to fetch notes!");
-        setTimeout(() => {
-          setIsToggleError(false);
-        }, 4000);
+        toast.error("Unable to fetch notes!");
       });
   }, []);
 
-
   const handleAddNewTask = async () => {
     if (!newTaskTitle || !newTaskDescription || newTaskTitle.trim() === "" || newTaskDescription.trim() === "") {
-      setIsToggleError(true);
-      setShowError("Enter both title and description!");
-      setTimeout(() => {
-        setIsToggleError(false);
-      }, 4000); 
-      return;
+      return toast.error("Enter both title and description!");
     }
 
     try {
       const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/notes/add`, {
-        title:newTaskTitle,
-        description:newTaskDescription,
+        title: newTaskTitle,
+        description: newTaskDescription,
       }, { withCredentials: true, headers: { "Content-Type": "application/json" } });
       
       setMessage((prev) => [...prev, res.data.note]);
       setFilteredNotes((prev) => [...prev, res.data.note]);
       setNewTaskTitle("");
       setNewTaskDescription("");
-      setIsModelOpen(false)
-      setIsToggleError(true);
-      setShowError(res.data.message);
-      setTimeout(() => {
-        setIsToggleError(false);
-      }, 4000); 
+      setIsModelOpen(false);
+      toast.success(res.data.message || "Note added!");
     } catch (err) {
-      console.log(err.message);
+      toast.error(err.response?.data?.message || err.message || "Failed to add note");
     }
   };
 
   const handleEditTask = async () => {
     if (!newTaskTitle || !newTaskDescription || newTaskTitle.trim() === "" || newTaskDescription.trim() === "") {
-      setIsToggleError(true);
-      setShowError("Enter title and description")
-      setTimeout(() => setIsToggleError(false), 4000);
-      return;
+      return toast.error("Enter title and description");
     }
 
     try {
@@ -83,9 +64,9 @@ const Dashboard = () => {
         title: newTaskTitle,
         description: newTaskDescription,
       }, { withCredentials: true });
-      setIsToggleError(true);
-      setShowError("Notes edited successfully")
-      setTimeout(() => setIsToggleError(false), 4000);
+      
+      toast.success("Notes edited successfully");
+      
       setMessage(
         message.map((item) =>
           item._id === editId ? { ...item, title: newTaskTitle, description: newTaskDescription } : item
@@ -103,12 +84,9 @@ const Dashboard = () => {
       setIsModelOpen(false);
       setIsEditMode(false);
     } catch (err) {
-      setIsToggleError(true);
-      setShowError(err.message)
-      setTimeout(() => setIsToggleError(false), 4000);
+      toast.error(err.response?.data?.message || err.message || "Failed to edit note");
     }
   };
-
 
   const handleEdit = (id, title, description) => {
     setIsEditMode(true);
@@ -122,20 +100,12 @@ const Dashboard = () => {
     axios
       .delete(`${process.env.REACT_APP_BACKEND_URL}/api/notes/${id}`, { withCredentials: true })
       .then((res) => {
-        setIsToggleError(true);
-        setShowError(res.data.message);
-        setTimeout(() => {
-          setIsToggleError(false);
-        }, 4000);
+        toast.success(res.data.message || "Note deleted!");
         setMessage(message.filter((item) => item._id !== id));
         setFilteredNotes(filteredNotes.filter((item) => item._id !== id));
       })
       .catch((err) => {
-        setIsToggleError(true);
-        setShowError(err.message);
-        setTimeout(() => {
-          setIsToggleError(false);
-        }, 4000);
+        toast.error(err.response?.data?.message || err.message || "Failed to delete note");
       });
   };
 
@@ -193,12 +163,6 @@ const Dashboard = () => {
           <IoIosAddCircle />
         </button>
       </div>
-
-      {isToggleError && (
-        <div className="error-message-container">
-          <p className="error-message">{showError}</p>
-        </div>
-      )}
 
       {isModelOpen && (
         <div className="modal-overlay">

@@ -7,18 +7,18 @@ import Dashboard from './components/Dashboard';
 import EmailVerify from './components/EmailVerify';
 import ResetPassword from './components/ResetPassword';
 import ProtectedRoute from './components/ProtectedRoutes';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
     <div>
+      <Toaster position="top-center" reverseOrder={false} />
       <Link to="/"></Link>
       <Link to="/login"></Link>
       <Link to="/signin"></Link>
       <Link to="/notes"></Link>
       <Link to="/email-verify"></Link>
       <Link to="/reset-password/:id"></Link>
-
-
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -37,8 +37,6 @@ function App() {
         <Route path="/reset-password/:token" element={<ResetPassword/>}/>
         
       </Routes>
-
-
     </div>
   );
 }

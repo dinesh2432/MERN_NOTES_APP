@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import './Header.css';
 
 const Header = ({ name }) => {
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
-      // const res = await axios.post(`https://mern-notes-app-backend-f4h5.onrender.com/api/auth/logout`, {}, { withCredentials: true });
       const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/auth/logout`, {}, { withCredentials: true });
+      toast.success("Logged out successfully!");
       navigate('/login');
     } catch (err) {
-      alert(err.message); 
+      toast.error(err.message || "Failed to log out"); 
     }
   };
 
