@@ -60,7 +60,7 @@ const Dashboard = () => {
     }
 
     try {
-      const res = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/notes/${editId}`, {
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/notes/${editId}`, {
         title: newTaskTitle,
         description: newTaskDescription,
       }, { withCredentials: true });

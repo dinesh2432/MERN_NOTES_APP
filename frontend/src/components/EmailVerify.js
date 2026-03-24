@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { Link } from "react-router-dom";
 import toast from 'react-hot-toast';
 import "./Home.css";
 import axios from "axios";
 
 const EmailVerify = () => {
     const [email, setEmail] = useState("");
-    const navigate = useNavigate();
+
 
     const handleEmailVerify = async (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
